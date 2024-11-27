@@ -7,7 +7,7 @@
           </span>
         </div>
 
-        <div class="mt-6 pl-6 mr-6 relative">
+        <div class="mt-6 sm:pl-6 sm:mr-6 relative">
           <input v-model="v$.email.$model" type="text"
                  class="w-[90%] h-[56px] rounded-l-lg pl-[15px] placeholder:text-base placeholder:leading-6 placeholder:text-grey"
                  :class="{'border-error': v$.email.$invalid && isSubmitted}"
@@ -30,6 +30,14 @@
             Неверный Email
           </p>
         </div>
+      <SelectRadioButton />
+      <div v-if="selectedPageValue.pageContent">
+        <div class="grid grid-cols-2 gap-6">
+          <div v-for="(card, index) in selectedPageValue.pageContent" :key="index" class="col-span-2 sm:col-span-1">
+            <NewsletterCard :item="card"/>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -37,6 +45,8 @@
 import {ref, reactive, computed } from 'vue';
 import { useVuelidate } from '@vuelidate/core'
 import { required, email } from '@vuelidate/validators'
+import SelectRadioButton from "./SelectRadioButton.vue";
+import NewsletterCard from "./NewsletterCard.vue";
 
 const emailValue = ref('')
 const isLoading = ref(false)
