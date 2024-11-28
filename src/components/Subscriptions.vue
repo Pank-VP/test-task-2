@@ -185,9 +185,6 @@ const selectedNewPage = (id) => {
 const selectedPageValue = computed(() => {
   return siteUrl.value.pages[0].pagesInside[0].pagesInside
 })
-
-
 </script>
-
 <style scoped>
 </style>

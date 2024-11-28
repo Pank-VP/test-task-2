@@ -1,9 +1,9 @@
 <script setup>
-import Three from './components/Subscriptions.vue'
+import Subscriptions from './components/Subscriptions.vue'
 </script>
 
 <template>
-  <Three />
+  <Subscriptions />
 </template>
 
 <style scoped>
