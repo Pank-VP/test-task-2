@@ -19,9 +19,15 @@
           <svg width="16" height="13" viewBox="0 0 16 13" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M5.08471 9.62365L1.93292 6.47186C1.57839 6.11733 1.00389 6.11631 0.648103 6.46959C0.290537 6.82464 0.289516 7.40265 0.645826 7.75896L5.08471 12.1978L15.3586 1.92397C15.7128 1.56972 15.7128 0.995371 15.3586 0.641122C15.0044 0.286991 14.4303 0.286855 14.076 0.640819L5.08471 9.62365Z" fill="#00CC33"/>
           </svg>
-          <p class="ml-2 text-base leading-5 font-normal">
+          <p class="ml-2 text-sm leading-5 font-normal">
             {{item.value}}
           </p>
+        </div>
+      </div>
+      <div v-if="item.agreementValue" class="mt-6 sm:mt-[18px]">
+        <div class="flex items-center">
+          <SelectRadioButton v-model="item.agreementValue.isAgree" :style="'w-12 h-6'"/>
+          <p class="text-base font-normal leading-5 ml-2">Уже получает {{item.agreementValue.usersAmount.toLocaleString()}} человек</p>
         </div>
       </div>
     </div>
@@ -30,6 +36,8 @@
   </div>
 </template>
 <script setup>
+import SelectRadioButton from "./SelectRadioButton.vue";
+
 const props = defineProps({
   item: {
     type: Object,

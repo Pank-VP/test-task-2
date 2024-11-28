@@ -17,6 +17,7 @@ export default {
         'light-blue': '#5A8CF1',
         'blue': '#316FEE',
         'text-color': '#000000',
+        'switch-grey': '#DCDCDC',
       },
       fontSize: {
         sm: '14px',

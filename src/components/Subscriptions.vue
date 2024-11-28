@@ -1,26 +1,32 @@
 <template>
-  <div>
+  <div class="h-full min-h-[100vh] relative flex flex-col flex-[1_0_auto]">
     <Header/>
     <div class="wrapper flex mt-7 sm:mt-0">
       <BreadCrumbs :items="siteUrl.pages"/>
     </div>
     <div class="wrapper mt-2 sm:mt-6">
-      <h1 class="text-text-color text-[32px] sm:text-[56px] font-medium leading-[42px] sm:leading-[72px]">Подписки
+      <h1 class="text-text-color text-[32px] sm:text-[56px] !font-medium tracking-[-0.03rem] leading-[42px] sm:leading-[72px]">Подписки
         «Клерка»</h1>
     </div>
-    <div class="wrapper flex gap-6 mt-6">
-      <div v-for="(item, index) in selectedPageValue"
-           :key="index" class="h-10 border-b-2"
-           :class="{'border-light-blue': item.value, 'border-white': !item.value}"
-      >
+    <div class="wrapper">
+      <div class="flex w-full max-w-[320px] sm:max-w-[294px] gap-4 sm:gap-6 mt-6">
+        <div v-for="(item, index) in selectedPageValue"
+             :key="index"
+             class="h-10 border-b-2 px-2"
+             :class="{'border-light-blue': item.value, 'border-white': !item.value}"
+        >
         <span @click="selectedNewPage(item.id)" class="text-dark-grey text-base leading-6 cursor-pointer"
               :class="{'text-light-blue': item.value}"
         >
           {{ item.title }}
         </span>
+        </div>
       </div>
     </div>
     <MainContainer :items="selectedPageValue"/>
+    <div class="flex flex-[2_2_auto] mx-auto">
+      <Footer class="flex justify-end py-12" />
+    </div>
   </div>
 </template>
 <script setup>
@@ -28,6 +34,7 @@ import {ref, onMounted, computed} from 'vue';
 import Header from "./common/Header.vue";
 import BreadCrumbs from "./common/BreadCrumbs.vue";
 import MainContainer from "./common/MainContainer.vue";
+import Footer from "./common/Footer.vue";
 
 const nodes = ref(null);
 const newData = ref([])
@@ -51,6 +58,11 @@ const siteUrl = ref({
               value: true,
               pageContent: [
                 {
+                  contentType: 'button',
+                  id: 50,
+                  value: false,
+                },
+                {
                   contentType: 'card',
                   id: 51,
                   header: 'Перед рассветом',
@@ -68,7 +80,7 @@ const siteUrl = ref({
                     },
                   ],
                   agreementValue: {
-                    isAgree: false,
+                    isAgree: true,
                     usersAmount: 59342,
                   },
                 },
@@ -146,7 +158,7 @@ const siteUrl = ref({
               value: false,
             },
             {
-              title: 'Мессенджер',
+              title: 'Мессенджеры',
               id: 5,
               value: false,
             }
