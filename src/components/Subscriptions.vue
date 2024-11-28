@@ -30,16 +30,12 @@
   </div>
 </template>
 <script setup>
-import {ref, onMounted, computed} from 'vue';
+import {ref, computed} from 'vue';
 import Header from "./common/Header.vue";
 import BreadCrumbs from "./common/BreadCrumbs.vue";
 import MainContainer from "./common/MainContainer.vue";
 import Footer from "./common/Footer.vue";
 
-const nodes = ref(null);
-const newData = ref([])
-const allowEmpty = ref(1);
-const count = ref(0)
 const siteUrl = ref({
   pages: [
     {

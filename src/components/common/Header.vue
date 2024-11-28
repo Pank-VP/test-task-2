@@ -1,6 +1,8 @@
 <template>
   <div class="wrapper mt-6 sm:mt-12">
-    <img src="/src/assets/images/klerk.png" alt="">
+    <header>
+      <img src="/src/assets/images/klerk.png" alt="">
+    </header>
   </div>
 </template>
 <script setup>

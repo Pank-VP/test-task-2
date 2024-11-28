@@ -1,5 +1,5 @@
 <template>
-  <span v-for="(item, index) in items" :key="index + new Date().getTime()" class="leading-4">
+  <span v-for="(item, index) in props.items" :key="index + new Date().getTime()" class="leading-4">
     <span class="text-text-color">
         <a href="/">
           <span v-if="item.value" class="text-[13px] leading-4 font-normal text-grey hover:underline">
@@ -20,13 +20,4 @@ const props = defineProps({
     type: Array,
   }
 })
-const emit = defineEmits(['changeData'])
-const changeData = (count, value) => {
-  setTimeout(() => {
-    emit('changeData', count, value)
-  }, 50)
-}
-const isShowChevron = (item) => {
-  return item.children && item.children.length
-}
 </script>
