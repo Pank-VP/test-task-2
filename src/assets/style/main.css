@@ -1,3 +1,5 @@
+@import 'primeicons/primeicons.css';
+
 @font-face {
   font-family: "DM Sans";
   src: url('/src/assets/fonts/Roboto-Regular.ttf');
@@ -14,7 +16,6 @@
   font-weight: 700;
 }
 
-@import 'primeicons/primeicons.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
