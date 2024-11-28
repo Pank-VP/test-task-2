@@ -28,9 +28,9 @@
               </svg>
             </span>
           </span>
-          <span v-else class="px-8">
+          <span v-else class="px-[21px] sm:px-8">
               <i class="pi pi-spin pi-spinner" style="font-size: 14px"></i>
-              <span class="ml-[9px]">
+              <span class="hidden sm:inline ml-[5px]">
                 Отправка
               </span>
             </span>
